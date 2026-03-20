@@ -16,14 +16,14 @@ namespace HRM_v2.Services.Implementations
             _context = context;
         }
 
-        public async Task<IEnumerable<NhanVienResponseDTO>> GetAll(int page, int pageSize)
-        {
-            return await _context.Set<NhanVienResponseDTO>()
-                .FromSqlRaw("EXEC sp_GetNhanVienPaging @Page, @PageSize",
-                    new SqlParameter("@Page", page),
-                    new SqlParameter("@PageSize", pageSize))
-                .ToListAsync();
-        }
+        //public async Task<IEnumerable<NhanVienResponseDTO>> GetAll(int page, int pageSize)
+        //{
+        //    return await _context.Set<NhanVienResponseDTO>()
+        //        .FromSqlRaw("EXEC sp_GetNhanVienPaging @Page, @PageSize",
+        //            new SqlParameter("@Page", page),
+        //            new SqlParameter("@PageSize", pageSize))
+        //        .ToListAsync();
+        //}
 
         public async Task Create(NhanVienCreateDTO dto)
         {
@@ -49,20 +49,24 @@ namespace HRM_v2.Services.Implementations
         }
         public async Task<IEnumerable<NhanVienResponseDTO>> Filter(FilterNhanVienDTO request)
         {
+            // 🔥 fallback default
+            request.Page = request.Page <= 0 ? 1 : request.Page;
+            request.PageSize = request.PageSize <= 0 ? 10 : request.PageSize;
+
             var chucVuIds = request.ChucVuIds != null && request.ChucVuIds.Any()
                 ? string.Join(",", request.ChucVuIds)
                 : null;
 
-                    return await _context.NhanVienResponses
-            .FromSqlRaw(
-                "EXEC sp_FilterNhanVien @ChucVuIds, @Keyword, @Email, @Page, @PageSize",
-                new SqlParameter("@ChucVuIds", (object?)chucVuIds ?? DBNull.Value),
-                new SqlParameter("@Keyword", (object?)request.Keyword ?? DBNull.Value),
-                new SqlParameter("@Email", (object?)request.Email ?? DBNull.Value),
-                new SqlParameter("@Page", request.Page),
-                new SqlParameter("@PageSize", request.PageSize)
-            )
-            .ToListAsync();
+            return await _context.NhanVienResponses
+                .FromSqlRaw(
+                    "EXEC sp_FilterNhanVien @ChucVuIds, @Keyword, @Email, @Page, @PageSize",
+                    new SqlParameter("@ChucVuIds", (object?)chucVuIds ?? DBNull.Value),
+                    new SqlParameter("@Keyword", (object?)request.Keyword ?? DBNull.Value),
+                    new SqlParameter("@Email", (object?)request.Email ?? DBNull.Value),
+                    new SqlParameter("@Page", request.Page),
+                    new SqlParameter("@PageSize", request.PageSize)
+                )
+                .ToListAsync();
         }
         // test
     }

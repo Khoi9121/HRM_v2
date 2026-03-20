@@ -16,9 +16,9 @@ namespace HRM_v2.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get(int page = 1, int pageSize = 10)
+        public async Task<IActionResult> Get([FromQuery] FilterNhanVienDTO request)
         {
-            var data = await _service.GetAll(page, pageSize);
+            var data = await _service.Filter(request);
             return Ok(data);
         }
 
@@ -34,11 +34,6 @@ namespace HRM_v2.Controllers
             await _service.Delete(id);
             return Ok("Xóa thành công");
         }
-        [HttpPost("filter")]
-        public async Task<IActionResult> Filter([FromBody] FilterNhanVienDTO request)
-        {
-            var data = await _service.Filter(request);
-            return Ok(data);
-        }
+        
     }
 }

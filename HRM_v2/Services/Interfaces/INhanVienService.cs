@@ -4,7 +4,7 @@ namespace HRM_v2.Services.Interfaces
 {
     public interface INhanVienService
     {
-        Task<IEnumerable<NhanVienResponseDTO>> GetAll(int page, int pageSize);
+        //Task<IEnumerable<NhanVienResponseDTO>> GetAll(int page, int pageSize);
         Task Create(NhanVienCreateDTO dto);
         Task Delete(int id);
         Task<IEnumerable<NhanVienResponseDTO>> Filter(FilterNhanVienDTO request);
