@@ -1,4 +1,5 @@
 ﻿using HRM_v2.DTOs;
+using HRM_v2.Services.Implementations;
 using HRM_v2.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,6 +35,12 @@ namespace HRM_v2.Controllers
             await _service.Delete(id);
             return Ok("Xóa thành công");
         }
-        
+        [HttpGet("thong-ke-chuc-vu")]
+        public async Task<IActionResult> GetThongKeChucVu()
+        {
+            var result = await _service.GetThongKeChucVuAsync();
+            return Ok(result);
+        }
+
     }
 }

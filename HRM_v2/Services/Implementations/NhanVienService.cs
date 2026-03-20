@@ -100,5 +100,21 @@ namespace HRM_v2.Services.Implementations
             };
         }
         // test
+        public async Task<List<ThongKeChucVuDTO>> GetThongKeChucVuAsync()
+        {
+            var result = await (
+                from nv in _context.NhanViens
+                join cv in _context.ChucVus
+                    on nv.ChucVuId equals cv.Id
+                group nv by cv.TenChucVu into g
+                select new ThongKeChucVuDTO
+                {
+                    TenChucVu = g.Key,
+                    SoLuong = g.Count()
+                }
+            ).ToListAsync();
+
+            return result;
+        }
     }
 }
