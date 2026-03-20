@@ -5,10 +5,13 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 🔥 THÊM DÒNG NÀY (quan trọng)
+Console.WriteLine("ROOT PATH: " + builder.Environment.ContentRootPath);
+
 // Add services to the container.
 builder.Services.AddControllers();
 
-// 🔥 Fix lỗi vòng lặp JSON (rất quan trọng)
+// 🔥 Fix lỗi vòng lặp JSON
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
@@ -37,7 +40,6 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// ❗ Nếu có login thì mới cần
 app.UseAuthorization();
 
 app.MapControllers();

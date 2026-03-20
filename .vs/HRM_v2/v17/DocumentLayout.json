@@ -1,50 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\~FarmConnect\\HRM_v2\\",
+  "WorkspaceRootPath": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\dtos\\nhanvienresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\dtos\\nhanvienresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\services\\implementations\\nhanvienservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\services\\implementations\\nhanvienservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\dtos\\filternhanviendto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\dtos\\filternhanviendto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\services\\interfaces\\inhanvienservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\services\\interfaces\\inhanvienservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\dtos\\nhanviencreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\dtos\\nhanviencreatedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\hrm_v2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\models\\nhanvien.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\hrm_v2\\services\\implementations\\nhanvienservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\services\\implementations\\nhanvienservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\hrm_v2\\services\\interfaces\\inhanvienservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\services\\interfaces\\inhanvienservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\hrm_v2\\dtos\\pagedresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\dtos\\pagedresult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\hrm_v2\\dtos\\nhanvienresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\dtos\\nhanvienresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\hrm_v2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\models\\chucvu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\models\\chucvu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|d:\\~farmconnect\\hrm_v2\\hrm_v2\\hrm_v2\\controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D7ADE11-872D-4563-99FC-7AF852EE6FDC}|HRM_v2\\HRM_v2.csproj|solutionrelative:hrm_v2\\controllers\\nhanviencontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,148 +38,92 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FilterNhanVienDTO.cs",
-              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\DTOs\\FilterNhanVienDTO.cs",
-              "RelativeDocumentMoniker": "HRM_v2\\DTOs\\FilterNhanVienDTO.cs",
-              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\DTOs\\FilterNhanVienDTO.cs",
-              "RelativeToolTip": "HRM_v2\\DTOs\\FilterNhanVienDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\Program.cs",
+              "RelativeDocumentMoniker": "HRM_v2\\Program.cs",
+              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\Program.cs",
+              "RelativeToolTip": "HRM_v2\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T07:50:57.916Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "NhanVienController.cs",
-              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Controllers\\NhanVienController.cs",
-              "RelativeDocumentMoniker": "HRM_v2\\Controllers\\NhanVienController.cs",
-              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Controllers\\NhanVienController.cs",
-              "RelativeToolTip": "HRM_v2\\Controllers\\NhanVienController.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAkwCsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T04:19:39.56Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NhanVienService.cs",
-              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Services\\Implementations\\NhanVienService.cs",
-              "RelativeDocumentMoniker": "HRM_v2\\Services\\Implementations\\NhanVienService.cs",
-              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Services\\Implementations\\NhanVienService.cs",
-              "RelativeToolTip": "HRM_v2\\Services\\Implementations\\NhanVienService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T04:11:31.362Z",
+              "WhenOpened": "2026-03-20T04:35:03.365Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\appsettings.json",
+              "RelativeDocumentMoniker": "HRM_v2\\appsettings.json",
+              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\appsettings.json",
+              "RelativeToolTip": "HRM_v2\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-03-20T04:33:47.915Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NhanVienResponseDTO.cs",
+              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\DTOs\\NhanVienResponseDTO.cs",
+              "RelativeDocumentMoniker": "HRM_v2\\DTOs\\NhanVienResponseDTO.cs",
+              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\DTOs\\NhanVienResponseDTO.cs",
+              "RelativeToolTip": "HRM_v2\\DTOs\\NhanVienResponseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T04:30:49.791Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PagedResult.cs",
+              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\DTOs\\PagedResult.cs",
+              "RelativeDocumentMoniker": "HRM_v2\\DTOs\\PagedResult.cs",
+              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\DTOs\\PagedResult.cs",
+              "RelativeToolTip": "HRM_v2\\DTOs\\PagedResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T04:27:16.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "INhanVienService.cs",
-              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Services\\Interfaces\\INhanVienService.cs",
+              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\Services\\Interfaces\\INhanVienService.cs",
               "RelativeDocumentMoniker": "HRM_v2\\Services\\Interfaces\\INhanVienService.cs",
-              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Services\\Interfaces\\INhanVienService.cs",
+              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\Services\\Interfaces\\INhanVienService.cs",
               "RelativeToolTip": "HRM_v2\\Services\\Interfaces\\INhanVienService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABHAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T04:08:32.191Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "NhanVienCreateDTO.cs",
-              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\DTOs\\NhanVienCreateDTO.cs",
-              "RelativeDocumentMoniker": "HRM_v2\\DTOs\\NhanVienCreateDTO.cs",
-              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\DTOs\\NhanVienCreateDTO.cs",
-              "RelativeToolTip": "HRM_v2\\DTOs\\NhanVienCreateDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T04:01:27.717Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "HRM_v2\\Data\\AppDbContext.cs",
-              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "HRM_v2\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T03:44:54.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-20T04:09:16.123Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "NhanVienResponseDTO.cs",
-              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\DTOs\\NhanVienResponseDTO.cs",
-              "RelativeDocumentMoniker": "HRM_v2\\DTOs\\NhanVienResponseDTO.cs",
-              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\DTOs\\NhanVienResponseDTO.cs",
-              "RelativeToolTip": "HRM_v2\\DTOs\\NhanVienResponseDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA2AAAAAAAAAA==",
+              "Title": "NhanVienService.cs",
+              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\Services\\Implementations\\NhanVienService.cs",
+              "RelativeDocumentMoniker": "HRM_v2\\Services\\Implementations\\NhanVienService.cs",
+              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\Services\\Implementations\\NhanVienService.cs",
+              "RelativeToolTip": "HRM_v2\\Services\\Implementations\\NhanVienService.cs",
+              "ViewState": "AgIAAFkAAAAAAAAAAADwv10AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T04:02:08.886Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-20T04:05:01.684Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Program.cs",
-              "RelativeDocumentMoniker": "HRM_v2\\Program.cs",
-              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Program.cs",
-              "RelativeToolTip": "HRM_v2\\Program.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAuwCwAAAAKAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "NhanVienController.cs",
+              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\Controllers\\NhanVienController.cs",
+              "RelativeDocumentMoniker": "HRM_v2\\Controllers\\NhanVienController.cs",
+              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\HRM_v2\\Controllers\\NhanVienController.cs",
+              "RelativeToolTip": "HRM_v2\\Controllers\\NhanVienController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwBQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T03:47:24.288Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\appsettings.json",
-              "RelativeDocumentMoniker": "HRM_v2\\appsettings.json",
-              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\appsettings.json",
-              "RelativeToolTip": "HRM_v2\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-03-19T03:46:10.36Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "ChucVu.cs",
-              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Models\\ChucVu.cs",
-              "RelativeDocumentMoniker": "HRM_v2\\Models\\ChucVu.cs",
-              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Models\\ChucVu.cs",
-              "RelativeToolTip": "HRM_v2\\Models\\ChucVu.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T03:43:57.992Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "NhanVien.cs",
-              "DocumentMoniker": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Models\\NhanVien.cs",
-              "RelativeDocumentMoniker": "HRM_v2\\Models\\NhanVien.cs",
-              "ToolTip": "D:\\~FarmConnect\\HRM_v2\\HRM_v2\\Models\\NhanVien.cs",
-              "RelativeToolTip": "HRM_v2\\Models\\NhanVien.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-19T03:43:34.466Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-20T03:56:06.015Z"
             }
           ]
         }
