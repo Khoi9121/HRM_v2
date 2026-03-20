@@ -5,13 +5,21 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔥 THÊM DÒNG NÀY (quan trọng)
+// 🔥 THÊM DÒNG NÀY (quan trọng để debug)
 Console.WriteLine("ROOT PATH: " + builder.Environment.ContentRootPath);
 
-// Add services to the container.
-builder.Services.AddControllers();
+// 1. Cấu hình dịch vụ CORS (Đăng ký Policy)
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
-// 🔥 Fix lỗi vòng lặp JSON
+// 2. Cấu hình Controllers và Fix lỗi vòng lặp JSON
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
@@ -22,22 +30,27 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// ✅ DbContext
+// ✅ Cấu hình DbContext
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ✅ DI Service
+// ✅ Đăng ký DI Service
 builder.Services.AddScoped<INhanVienService, NhanVienService>();
 
 var app = builder.Build();
 
-// Middleware
+// --- THỨ TỰ MIDDLEWARE (CỰC KỲ QUAN TRỌNG) ---
+
+// Kích hoạt CORS ngay đầu tiên để tránh bị chặn bởi các Middleware khác
+app.UseCors("AllowAll");
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+// Chuyển hướng HTTPS (đặt sau CORS để trình duyệt nhận được Header CORS trước khi redirect)
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
