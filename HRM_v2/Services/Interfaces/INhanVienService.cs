@@ -7,7 +7,7 @@ namespace HRM_v2.Services.Interfaces
         //Task<IEnumerable<NhanVienResponseDTO>> GetAll(int page, int pageSize);
         Task Create(NhanVienCreateDTO dto);
         Task Delete(int id);
-        Task<IEnumerable<NhanVienResponseDTO>> Filter(FilterNhanVienDTO request);
+        Task<PagedResult<NhanVienResponseDTO>> Filter(FilterNhanVienDTO request);
 
     }
 }

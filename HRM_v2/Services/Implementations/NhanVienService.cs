@@ -4,16 +4,18 @@ using HRM_v2.Models;
 using HRM_v2.Services.Interfaces;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.Extensions.Configuration;
 namespace HRM_v2.Services.Implementations
 {
     public class NhanVienService : INhanVienService
     {
         private readonly AppDbContext _context;
+        private readonly IConfiguration _config;
 
-        public NhanVienService(AppDbContext context)
+        public NhanVienService(AppDbContext context, IConfiguration config)
         {
             _context = context;
+            _config = config;
         }
 
         //public async Task<IEnumerable<NhanVienResponseDTO>> GetAll(int page, int pageSize)
@@ -47,26 +49,55 @@ namespace HRM_v2.Services.Implementations
             _context.NhanViens.Remove(nv);
             await _context.SaveChangesAsync();
         }
-        public async Task<IEnumerable<NhanVienResponseDTO>> Filter(FilterNhanVienDTO request)
+        public async Task<PagedResult<NhanVienResponseDTO>> Filter(FilterNhanVienDTO request)
         {
-            // 🔥 fallback default
-            request.Page = request.Page <= 0 ? 1 : request.Page;
-            request.PageSize = request.PageSize <= 0 ? 10 : request.PageSize;
-
             var chucVuIds = request.ChucVuIds != null && request.ChucVuIds.Any()
                 ? string.Join(",", request.ChucVuIds)
                 : null;
 
-            return await _context.NhanVienResponses
-                .FromSqlRaw(
-                    "EXEC sp_FilterNhanVien @ChucVuIds, @Keyword, @Email, @Page, @PageSize",
-                    new SqlParameter("@ChucVuIds", (object?)chucVuIds ?? DBNull.Value),
-                    new SqlParameter("@Keyword", (object?)request.Keyword ?? DBNull.Value),
-                    new SqlParameter("@Email", (object?)request.Email ?? DBNull.Value),
-                    new SqlParameter("@Page", request.Page),
-                    new SqlParameter("@PageSize", request.PageSize)
-                )
-                .ToListAsync();
+            //var connectionString = "Server=MSI;Database=HRM_v2;Trusted_Connection=True;TrustServerCertificate=True";
+            var connectionString = _config["ConnectionStrings:DefaultConnection"];
+
+            using var conn = new SqlConnection(connectionString);
+            await conn.OpenAsync();
+
+            using var cmd = new SqlCommand("sp_FilterNhanVien", conn);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@ChucVuIds", (object?)chucVuIds ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Keyword", (object?)request.Keyword ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Email", (object?)request.Email ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Page", request.Page);
+            cmd.Parameters.AddWithValue("@PageSize", request.PageSize);
+
+            using var reader = await cmd.ExecuteReaderAsync();
+
+            int totalItem = 0;
+            if (await reader.ReadAsync())
+            {
+                totalItem = reader.GetInt32(0);
+            }
+
+            await reader.NextResultAsync();
+
+            var data = new List<NhanVienResponseDTO>();
+
+            while (await reader.ReadAsync())
+            {
+                data.Add(new NhanVienResponseDTO
+                {
+                    Id = reader.GetInt32(0),
+                    TenNhanVien = reader.GetString(1),
+                    TenChucVu = reader.GetString(2),
+                    Email = reader.GetString(3)
+                });
+            }
+
+            return new PagedResult<NhanVienResponseDTO>
+            {
+                TotalItem = totalItem,
+                Data = data
+            };
         }
         // test
     }

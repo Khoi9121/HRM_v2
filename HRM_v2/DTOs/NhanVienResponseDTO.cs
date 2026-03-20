@@ -7,6 +7,7 @@ namespace HRM_v2.DTOs
         public int Id { get; set; }
         public string TenNhanVien { get; set; }
         public string TenChucVu { get; set; }
+        public string Email { get; set; }
         [NotMapped]
         public string test { get; set; } = "Xin chào";
     }
