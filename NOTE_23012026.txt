@@ -1,0 +1,1 @@
+- Thêm thuộc tính NgaySinh vào bảng nhân viên

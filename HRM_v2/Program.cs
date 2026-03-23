@@ -1,17 +1,28 @@
 using HRM_v2.Data;
 using HRM_v2.Services.Implementations;
 using HRM_v2.Services.Interfaces;
+using HRM_v2.Services.Job;
 using Microsoft.EntityFrameworkCore;
+using Hangfire;
+using Hangfire.SqlServer;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔥 THÊM DÒNG NÀY (quan trọng)
+// Debug đường dẫn
 Console.WriteLine("ROOT PATH: " + builder.Environment.ContentRootPath);
 
-// Add services to the container.
-builder.Services.AddControllers();
+// ====================== CORS ======================
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
-// 🔥 Fix lỗi vòng lặp JSON
+// ====================== CONTROLLER ======================
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
@@ -22,26 +33,53 @@ builder.Services.AddControllers()
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// ✅ DbContext
+// ====================== DB CONTEXT ======================
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ✅ DI Service
+// ====================== DI SERVICES ======================
 builder.Services.AddScoped<INhanVienService, NhanVienService>();
+builder.Services.AddScoped<IBirthdayService, BirthdayService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<BirthdayJob>();
+
+// ====================== HANGFIRE ======================
+builder.Services.AddHangfire(config =>
+    config.UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddHangfireServer();
 
 var app = builder.Build();
 
-// Middleware
+// ====================== MIDDLEWARE ======================
+
+// CORS
+app.UseCors("AllowAll");
+
+// Swagger
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+// Hangfire Dashboard
+app.UseHangfireDashboard();
+
+// HTTPS
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+// ====================== CRON JOB ======================
+
+// 🔥 Đổi thành "* * * * *" nếu muốn test mỗi phút
+RecurringJob.AddOrUpdate<BirthdayJob>(
+    "birthday-job",
+    job => job.Run(),
+    "* * * * *"
+);
 
 app.Run();
