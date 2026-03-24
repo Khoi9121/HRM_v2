@@ -6,15 +6,16 @@ using Microsoft.EntityFrameworkCore;
 using Hangfire;
 using Hangfire.SqlServer;
 
-// 🔥 JWT
+// JWT
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-var builder = WebApplication.CreateBuilder(args);
+// Swagger JWT
+using Microsoft.OpenApi.Models;
+using HRM_v2.Middleware;
 
-// Debug đường dẫn
-Console.WriteLine("ROOT PATH: " + builder.Environment.ContentRootPath);
+var builder = WebApplication.CreateBuilder(args);
 
 // ====================== CORS ======================
 builder.Services.AddCors(options =>
@@ -36,16 +37,46 @@ builder.Services.AddControllers()
     });
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
-// ====================== DB CONTEXT ======================
+// ====================== SWAGGER + JWT ======================
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "HRM API", Version = "v1" });
+
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "Nhập: Bearer {token}",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] {}
+        }
+    });
+});
+
+// ====================== DB ======================
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ====================== DI SERVICES ======================
+// ====================== DI ======================
 builder.Services.AddScoped<INhanVienService, NhanVienService>();
 builder.Services.AddScoped<IBirthdayService, BirthdayService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<BirthdayJob>();
 
 // ====================== JWT ======================
@@ -65,6 +96,30 @@ builder.Services.AddAuthentication("Bearer")
                 Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])
             )
         };
+
+        options.Events = new JwtBearerEvents
+        {
+            OnChallenge = context =>
+            {
+                context.HandleResponse();
+
+                context.Response.StatusCode = 401;
+                context.Response.ContentType = "application/json";
+
+                return context.Response.WriteAsync(
+                    "{\"message\": \"Bạn chưa đăng nhập hoặc token không hợp lệ\"}"
+                );
+            },
+            OnForbidden = context =>
+            {
+                context.Response.StatusCode = 403;
+                context.Response.ContentType = "application/json";
+
+                return context.Response.WriteAsync(
+                    "{\"message\": \"Bạn không có quyền hạn này\"}"
+                );
+            }
+        };
     });
 
 builder.Services.AddAuthorization();
@@ -77,7 +132,7 @@ builder.Services.AddHangfireServer();
 
 var app = builder.Build();
 
-// ====================== MIDDLEWARE ======================
+// ====================== PIPELINE ======================
 
 // CORS
 app.UseCors("AllowAll");
@@ -89,23 +144,27 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Hangfire Dashboard
+// Hangfire
 app.UseHangfireDashboard();
 
 // HTTPS
 app.UseHttpsRedirection();
 
-// 🔥 JWT Middleware (QUAN TRỌNG: phải trước Authorization)
+// 🔥 QUAN TRỌNG NHẤT
 app.UseAuthentication();
 app.UseAuthorization();
 
+// ✅ Audit phải đặt SAU Auth
+app.UseMiddleware<AuditMiddleware>();
+
+// Map API
 app.MapControllers();
 
 // ====================== CRON JOB ======================
 RecurringJob.AddOrUpdate<BirthdayJob>(
     "birthday-job",
     job => job.Run(),
-    "* * * * *" // chạy mỗi phút (test)
+    "* * * * *"
 );
 
 app.Run();

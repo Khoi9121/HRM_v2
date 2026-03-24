@@ -14,7 +14,7 @@ namespace HRM_v2.Models
 
         public int NhanVienId { get; set; }
 
-        public string Role { get; set; } // "GiamDoc" hoặc "NhanVien"
+        public string Role { get; set; } // "GiamDoc,TruongPhong" hoặc "NhanVien"
 
         public string RefreshToken { get; set; }
 

@@ -5,5 +5,6 @@ namespace HRM_v2.Services.Interfaces
     public interface IAuthService
     {
         AuthResponseDTO Login(LoginDTO dto);
+        AuthResponseDTO Refresh(string refreshToken);
     }
 }
