@@ -20,5 +20,13 @@ namespace HRM_v2.Controllers
             var result = _authService.Login(dto);
             return Ok(result);
         }
+        [HttpPost("refresh")]
+        public IActionResult Refresh([FromBody] RefreshTokenRequestDTO request)
+        {
+            var result = _authService.Refresh(request.RefreshToken);
+            return Ok(result);
+
+        }
+
     }
 }

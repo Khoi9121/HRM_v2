@@ -39,5 +39,33 @@ namespace HRM_v2.Services.Implementations
                 RefreshToken = refreshToken
             };
         }
+        public AuthResponseDTO Refresh(string refreshToken)
+        {
+            var user = _context.UserAccounts
+                .FirstOrDefault(x => x.RefreshToken == refreshToken);
+
+            if (user == null)
+                throw new Exception("Refresh token không hợp lệ");
+
+            if (user.RefreshTokenExpiryTime < DateTime.Now)
+                throw new Exception("Refresh token đã hết hạn");
+
+            // 🔥 tạo token mới
+            var newToken = JwtHelper.GenerateToken(user.Username, user.Role, _config);
+
+            // 🔥 tạo refresh token mới (rotation)
+            var newRefreshToken = Guid.NewGuid().ToString();
+
+            user.RefreshToken = newRefreshToken;
+            user.RefreshTokenExpiryTime = DateTime.Now.AddDays(1);
+
+            _context.SaveChanges();
+
+            return new AuthResponseDTO
+            {
+                Token = newToken,
+                RefreshToken = newRefreshToken
+            };
+        }
     }
 }
