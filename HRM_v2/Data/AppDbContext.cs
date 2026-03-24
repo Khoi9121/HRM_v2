@@ -14,7 +14,8 @@ namespace HRM_v2.Data
         public DbSet<NhanVien> NhanViens { get; set; }
         public DbSet<ChucVu> ChucVus { get; set; }
         public DbSet<NhanVienResponseDTO> NhanVienResponses { get; set; }
-
+        public DbSet<UserAccount> UserAccounts { get; set; }
+        public DbSet<AuditLog> AuditLogs { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

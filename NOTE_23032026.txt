@@ -1,0 +1,3 @@
+- Thêm thuộc tính NgaySinh vào bảng nhân viên
+- Làm xong chức năng gửi mail 
+- nghiêm cứu tính năng token trong việc auth

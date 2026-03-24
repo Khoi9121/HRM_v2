@@ -6,6 +6,11 @@ using Microsoft.EntityFrameworkCore;
 using Hangfire;
 using Hangfire.SqlServer;
 
+// 🔥 JWT
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Debug đường dẫn
@@ -43,6 +48,27 @@ builder.Services.AddScoped<IBirthdayService, BirthdayService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 builder.Services.AddScoped<BirthdayJob>();
 
+// ====================== JWT ======================
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])
+            )
+        };
+    });
+
+builder.Services.AddAuthorization();
+
 // ====================== HANGFIRE ======================
 builder.Services.AddHangfire(config =>
     config.UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -69,17 +95,17 @@ app.UseHangfireDashboard();
 // HTTPS
 app.UseHttpsRedirection();
 
+// 🔥 JWT Middleware (QUAN TRỌNG: phải trước Authorization)
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
 // ====================== CRON JOB ======================
-
-// 🔥 Đổi thành "* * * * *" nếu muốn test mỗi phút
 RecurringJob.AddOrUpdate<BirthdayJob>(
     "birthday-job",
     job => job.Run(),
-    "* * * * *"
+    "* * * * *" // chạy mỗi phút (test)
 );
 
 app.Run();
